@@ -60,7 +60,41 @@ class info: public one{
         menu();
     }
 };
+////////////////////////////////class Dr. Srijash///////
 
+class Srijash: public info{
+    public:
+    info a1;
+    void get(){
+        system("cls");
+        ofstream out("Srijash.txt",ios::app|ios::binary);
+        a1.get();
+        out.write((char*)&a1, sizeof(info));
+        out.close();
+        cout<<"Your Entry has been saved \nPress Any Key To Continue : \n\n";
+        getch();
+        menu();
+    }
+    void show(){
+        ifstream in("Srijash.txt");
+        if(!in ){
+            cout<<"No Data In the File";
+            cout<<"\nPress Any key To Continue: ";
+            getch();
+            menu();
+        }
+        else{
+            while(!in.eof()){
+                in.read((char*)&a1,sizeof(a1));
+                a1.show();
+            }
+            in.close();
+            cout<<"Press Enter To Continue = ";
+            getch();
+            menu();
+        }
+    }
+};
 
 ////////////////////////////////////class Sandip//////////////
 
@@ -135,41 +169,7 @@ class Rohit:public info{
 };
 
 
-////////////////////////////////class Dr. Srijash///////
 
-class Srijash: public info{
-    public:
-    info a1;
-    void get(){
-        system("cls");
-        ofstream out("Srijash.txt",ios::app|ios::binary);
-        a1.get();
-        out.write((char*)&a1, sizeof(info));
-        out.close();
-        cout<<"Your Entry has been saved \nPress Any Key To Continue : \n\n";
-        getch();
-        menu();
-    }
-    void show(){
-        ifstream in("Srijash.txt");
-        if(!in ){
-            cout<<"No Data In the File";
-            cout<<"\nPress Any key To Continue: ";
-            getch();
-            menu();
-        }
-        else{
-            while(!in.eof()){
-                in.read((char*)&a1,sizeof(a1));
-                a1.show();
-            }
-            in.close();
-            cout<<"Press Enter To Continue = ";
-            getch();
-            menu();
-        }
-    }
-};
 
 
 
